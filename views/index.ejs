@@ -3,25 +3,85 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  <meta name="description" content="A tool to help you decide on whether a Tesla is the right financial decision for you.">
-  <style>
+
+<style>
     .white {
         color: whitesmoke;
     }
     .center{
         text-align: center;
     }
+    /* Common styles for both dark and light modes */
+    body {
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    h2 {
+      font-size: 24px;
+    }
+
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .navbar.dark-mode {
+      background-color: #1f1f1f;
+      color: #ffffff;
+    }
+
+    .btn-primary.dark-mode {
+      background-color: #007bff;
+      color: #ffffff;
+    }
+
+    .carousel-inner.dark-mode {
+        background-color: red
+        /* Dark carousel background color */
+    }
+    body.dark-mode h2 h3 {
+      color: #ffffff;
+    }
+    /* Light mode styles */
+    body.light-mode {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .navbar.light-mode {
+      background-color: #f8f9fa;
+      color: #000000;
+    }
+
+    .btn-primary.light-mode {
+      background-color: #007bff;
+      color: #ffffff;
+    }
+    .carousel-inner.light-mode  {
+        background-color: #ffffff;
+        /* Light carousel background color */
+    }
+    .white.light-mode{
+      color: #000000;
+    }
+    body.light-mode h2 h3{
+      color: #000000;
+    }
   </style>
 </head>
-<body class="bg-dark">
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
@@ -31,25 +91,33 @@
           </div>
         </div>
       </nav>
+      
   <main class="container my-4">
-    <h2 class="white center">Which Tesla are you considering?</h2>
+    <div class="toggle-switch">
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider round"></span>
+      </label>
+      <span class="toggle-label">Dark Mode</span>
+    </div>
+    <h2 class=" center">Which Tesla are you considering?</h2>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner center">
           <div class="carousel-item active"style="margin:auto">
             <img src="/images/model3.png" class="d-block w-100" alt="Model 3">
-            <h3 class="white">Model 3</h3>
+            <h3 class="">Model 3</h3>
           </div>
           <div class="carousel-item">
             <img src="/images/modely.png" class="d-block w-100" alt="...">
-            <h3 class="white">Model Y</h3>
+            <h3 class="">Model Y</h3>
           </div>
           <div class="carousel-item">
             <img src="/images/models.png" class="d-block w-100" alt="...">
-            <h3 class="white">Model S</h3>
+            <h3 class="">Model S</h3>
           </div>
           <div class="carousel-item">
             <img src="/images/modelx.png" class="d-block w-100" alt="...">
-            <h3 class="white">Model X</h3>
+            <h3 class="">Model X</h3>
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -62,20 +130,20 @@
         </a>
       </div>
     </main>
-    <div class="userstats center white">
-        <h3 class="white center">How many miles do you drive per year? </h3>
+    <div class="userstats center ">
+      <h3 class="center">How many miles do you drive per year? </h3>
         <!--<label for="customRange">Select a value:</label>-->
         <input type="range" class="form-range" min="2000" max="20000" step="100" id="customRange">
 
         <p><span id="selectedValue">10000</span> Miles</p>
     </div>
-    <div class="userstats2 center white">
-        <h3 class="white center">What is your current car's MPG?</h3>
+    <div class="userstats2 center ">
+      <h3 class=" center">What is your current car's MPG?</h3>
         <p class="center">(Leave empty if you're unsure.)</p>
         <input type="number" name="mpg" id="mpg" min="1" max="99" pattern="\d{1,2}" placeholder="20">
     </div>
-    <div class="userstats2 center white">
-        <h3 class="white center">What kind of fuel does your car use?</h3>
+    <div class="userstats2 center ">
+      <h3 class=" center">What kind of fuel does your car use?</h3>
         <select name="fuel" id="fuel" required>
             <option value="" disabled selected>Select fuel type</option>
             <option value="regular">Regular (87)</option>
@@ -218,6 +286,40 @@ function sendPostRequest(data) {
       });
     });
 </script>
-  
+
+<script>
+  // JavaScript to toggle between dark and light modes
+  function toggleDarkMode() {
+    const body = document.body;
+    const toggleSwitch = document.getElementById("darkModeToggle");
+    const toggleLabel = document.querySelector(".toggle-label");
+
+    if (toggleSwitch.checked) {
+      body.classList.add('dark-mode');
+      toggleLabel.textContent = 'Dark Mode';
+      localStorage.setItem('mode', 'dark');
+    } else {
+      body.classList.remove('dark-mode');
+      toggleLabel.textContent = 'Light Mode';
+      localStorage.setItem('mode', 'light');
+    }
+  }
+
+  // Add a change event listener to the dark mode switch
+  document.getElementById("darkModeToggle").addEventListener("change", toggleDarkMode);
+
+  // Check for the user's preference in local storage and set the mode and switch state accordingly on page load
+  const mode = localStorage.getItem('mode');
+  const toggleSwitch = document.getElementById("darkModeToggle");
+  if (mode === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleSwitch.checked = true;
+  } else {
+    document.body.classList.remove('dark-mode');
+    toggleSwitch.checked = false;
+  }
+
+</script>
+
 </body>
 </html>
