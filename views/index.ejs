@@ -46,7 +46,7 @@
         background-color: red
         /* Dark carousel background color */
     }
-    body.dark-mode h2 h3 {
+    body.dark-mode h2 h3 h4 h5 {
       color: #ffffff;
     }
     /* Light mode styles */
@@ -71,7 +71,7 @@
     .white.light-mode{
       color: #000000;
     }
-    body.light-mode h2 h3{
+    body.light-mode h2 h3 h4 h5{
       color: #000000;
     }
     .toggle-button {
@@ -93,17 +93,6 @@
     justify-content: center;
     align-items: center;
   }
-
-  .white-center{
-    color: #000000;
-  }
-  .savings-center-white{
-    padding: 20px;
-    background-color: aliceblue;
-    align-items: center;
-    text-align: center;
-  }
-
   </style>
 </head>
 <body>
@@ -188,9 +177,9 @@
     <div class="yoohoo center">
         <button id="submitButton" class="btn btn-primary center">Submit Data</button>
     </div>
-    <div class="savings-center-white" id="myDiv">
-        <h3 class="white-center" style="display:none">You would save:</h3>
-        <h2 class="white-center" id="fuelSavings"><%= fuelSavings %></h2>
+    <div class="savings center" id="myDiv">
+        <h3 class="center" style="display:none">You would save:</h3>
+        <h2 class="center" id="fuelSavings"><%= fuelSavings %></h2>
     </div>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
