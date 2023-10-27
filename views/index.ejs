@@ -154,21 +154,21 @@
     <div class="userstats center ">
       <h4 class="center">How many miles do you drive per year? </h4>
         <!--<label for="customRange">Select a value:</label>-->
-        <input type="range" class="form-range" min="2000" max="20000" step="100" id="customRange">
+        <input type="range" class="form-range" min="2000" max="20000" step="100" id="customRange" default="10000">
 
         <p><span id="selectedValue">10000</span> Miles</p>
     </div>
     <div class="userstats2 center ">
       <h4 class=" center">What is your current car's MPG?</h4>
         <p class="center">(Leave empty if you're unsure.)</p>
-        <input type="number" name="mpg" id="mpg" min="1" max="99" pattern="\d{1,2}" placeholder="20">
+        <input type="number" name="mpg" id="mpg" min="1" max="99" pattern="\d{1,2}" placeholder="20" default="20">
     </div>
     <div class="userstats2 center ">
       <h4 class=" center">What kind of fuel do you use?</h4>
         <select name="fuel" id="fuel" required>
             <option value="" disabled selected>Select fuel type</option>
             <option value="regular">Regular (87)</option>
-            <option value="premium">Midgrade (89)</option>
+            <option value="midgrade">Midgrade (89)</option>
             <option value="premium">Premium (93)</option>
             <option value="diesel">Diesel</option>
             <option value="dont_know">I don't know</option>
@@ -288,7 +288,15 @@ function sendPostRequest(data) {
         var miles = slider.val();
         var mpg = mpgInput.val();
         var fuel = fuelSelect.val();
-  
+        
+        if (mpg===""){
+          mpg = '20';
+        }
+
+        if (fuel===null){
+          fuel = 'midgrade';
+        }
+
         // Create an object with the collected data
         var carData = {
           model: carModel,
