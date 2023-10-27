@@ -93,6 +93,17 @@
     justify-content: center;
     align-items: center;
   }
+
+  .white-center{
+    color: #000000;
+  }
+  .savings-center-white{
+    padding: 20px;
+    background-color: aliceblue;
+    align-items: center;
+    text-align: center;
+  }
+
   </style>
 </head>
 <body>
@@ -177,9 +188,9 @@
     <div class="yoohoo center">
         <button id="submitButton" class="btn btn-primary center">Submit Data</button>
     </div>
-    <div class="savings center white" id="myDiv">
-        <h3 class="white center" style="display:none">You would save:</h3>
-        <h2 class="white center" id="fuelSavings"><%= fuelSavings %></h2>
+    <div class="savings-center-white" id="myDiv">
+        <h3 class="white-center" style="display:none">You would save:</h3>
+        <h2 class="white-center" id="fuelSavings"><%= fuelSavings %></h2>
     </div>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
